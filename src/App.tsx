@@ -14,7 +14,7 @@ export default function App() {
     if (info.offset.y > 50) {
       setIsOpen(false);
     }
-    if (info.offset.y < -50) {
+    if (info.offset.y < -10) {
       setTopConstraint(sectionRef);
     }
   };
@@ -38,7 +38,6 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            // onClick={() => setIsOpen(!isOpen)}
             className="absolute flex flex-col justify-end bg-black/20 left-0 right-0 h-full overflow-hidden"
           >
             <motion.div
@@ -51,7 +50,8 @@ export default function App() {
               animate={{
                 y: 0,
                 opacity: 1,
-                height: topConstraint === dragRef ? "50%" : "100%",
+                height: "100%",
+                marginTop: topConstraint === dragRef ? "80%" : "0%",
               }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ ease: "linear" }}
